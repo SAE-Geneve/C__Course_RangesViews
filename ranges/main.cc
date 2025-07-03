@@ -1,8 +1,4 @@
-﻿//
-// Created by sebas on 01/07/2025.
-//
-
-#include <algorithm>
+﻿#include <algorithm>
 #include <array>
 #include <iostream>
 #include <numeric>
@@ -28,9 +24,11 @@ int main(){
     std::ranges::shuffle(ints, std::default_random_engine{});
     Print(ints);
 
-    if (std::find(ints.begin(), ints.end(), 5) != std::end(ints)) {
-        std::cout << "Found 5" << std::endl;
-    }
+    std::ranges::for_each(ints, [](int i) { std::cout << i << " "; });
+
+    // if (std::find(ints.begin(), ints.end(), 5) != std::end(ints)) {
+    //     std::cout << "Found 5" << std::endl;
+    // }
 
     if (std::ranges::find(ints, 5) != std::end(ints)) {
         std::cout << "Found 5" << std::endl;

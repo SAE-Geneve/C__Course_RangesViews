@@ -14,22 +14,19 @@ public:
 class Container {
 public:
     Container(){
-        elements.emplace_back(1);
-        elements.emplace_back(2);
-        elements.emplace_back(3);
-        elements.emplace_back(4);
-        elements.emplace_back(5);
-        elements.emplace_back(6);
-        elements.emplace_back(7);
-        elements.emplace_back(8);
+        elements.emplace_back(1.f);
+        elements.emplace_back(2.f);
+        elements.emplace_back(3.f);
+        elements.emplace_back(4.f);
+        elements.emplace_back(8.f);
     }
 
     std::vector<Element> elements;
 
     auto filtered(){
         return elements
-               | std::views::filter([](Element e) { return e.a_ % 2 == 0; })
-               | std::views::transform([](Element e) {
+               | std::views::filter([](auto e) { return e.a_ % 2 == 0; })
+               | std::views::transform([](auto e) {
                    e.a_ *= e.a_;
                    return e;
                })
